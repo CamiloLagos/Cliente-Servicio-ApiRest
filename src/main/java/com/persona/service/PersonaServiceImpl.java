@@ -1,8 +1,8 @@
-package com.client.service;
+package com.persona.service;
 
-import com.client.entity.Persona;
-import com.client.entity.TipoId;
-import com.client.repository.PersonaRepository;
+import com.persona.entity.Persona;
+import com.persona.entity.TipoId;
+import com.persona.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

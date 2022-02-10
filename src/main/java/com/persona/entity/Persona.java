@@ -1,4 +1,4 @@
-package com.client.entity;
+package com.persona.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

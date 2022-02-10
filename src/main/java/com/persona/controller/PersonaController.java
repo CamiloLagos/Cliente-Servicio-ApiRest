@@ -1,9 +1,9 @@
-package com.client.controller;
+package com.persona.controller;
 
-import com.client.entity.Persona;
-import com.client.entity.PersonaResponse;
-import com.client.entity.TipoId;
-import com.client.service.PersonaServiceImpl;
+import com.persona.entity.Persona;
+import com.persona.entity.PersonaResponse;
+import com.persona.entity.TipoId;
+import com.persona.service.PersonaServiceImpl;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

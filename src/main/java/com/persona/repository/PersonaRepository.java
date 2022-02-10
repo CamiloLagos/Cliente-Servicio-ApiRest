@@ -1,7 +1,7 @@
-package com.client.repository;
+package com.persona.repository;
 
-import com.client.entity.Persona;
-import com.client.entity.TipoId;
+import com.persona.entity.Persona;
+import com.persona.entity.TipoId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
