@@ -1,9 +1,12 @@
 package com.persona.service;
 
+import com.persona.client.ImagenClient;
 import com.persona.entity.Persona;
 import com.persona.entity.TipoId;
+import com.persona.modelo.Imagen;
 import com.persona.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,17 +18,24 @@ public class PersonaServiceImpl {
     @Autowired
     private PersonaRepository personaRepositorio;
 
+    @Autowired
+    private ImagenClient imagenClient;
+
 
     public List<Persona> listAllPersona() {
         return personaRepositorio.findAll();
     }
 
     public Persona getPersona(int id, TipoId tipoId) {
-        return Optional.ofNullable(personaRepositorio.findByIdAndTipoId(id, tipoId)).orElseThrow(()-> new RuntimeException("Persona No Encontrada!"));
+        Persona persona = Optional.ofNullable(personaRepositorio.findByIdAndTipoId(id, tipoId)).orElseThrow(()-> new RuntimeException("Persona No Encontrada!"));
+        Imagen imagen = imagenClient.buscarImagen(persona.getId()).getBody();
+        persona.setImagen(imagen);
+        return persona;
     }
 
 
     public Persona crearPersona(Persona persona) {
+        imagenClient.crearImagen(persona.getImagen());
         return personaRepositorio.save(persona);
     }
 
